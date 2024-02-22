@@ -11,7 +11,10 @@
 
    
 ## 개발환경
-* 언어 : JAVA
-* UI : HTML5, CSS, JavaScript, jQuery, Bootstrap
-* DB : Oracle
-* 기타 사용 기술 : R, Chart.js
+-	언어 : JAVA
+-	UI : HTML5, CSS, JavaScript, jQuery, Bootstrap
+-	DB : Oracle
+-	Data 분석 : R
+-	Framework : Spring Framework
+-	Server : Apache Tomcat 9
+-	기타 사용 기술 : RestAPI , Chart.js

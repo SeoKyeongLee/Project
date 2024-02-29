@@ -8,7 +8,7 @@ import com.mycompany.goldenTime.model.CDataVO;
 import com.mycompany.goldenTime.model.CRegressionVO;
 
 @Component
-public class CMonthSearchCommand {
+public class CMonthSearchCommand {   
 	
 	@Autowired
 	CRepository repository;

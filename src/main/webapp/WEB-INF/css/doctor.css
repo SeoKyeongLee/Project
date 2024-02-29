@@ -1,0 +1,392 @@
+/* 폰트 cdn */
+@font-face {
+	font-family: 'MICEGothic Bold';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2')
+		format('woff2');
+	font-weight: 700;
+	font-style: normal;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style: none;
+	font-family: 'MICEGothic Bold';
+}
+
+/* 네비게이션 영역 */
+#menu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 2;
+}
+
+/* 네비게이션 영역 */
+nav {
+	background-color: rgb(255, 255, 255);
+	/* border-bottom: 1px solid gray; */
+}
+
+.nav-link:hover {
+	color: rgb(138, 35, 35);
+}
+
+.imgbox {
+	height: 90px;
+	margin-left: 100px;
+	overflow: hidden;
+}
+
+@media screen and (max-width: 988px) {
+	.imgbox {
+		margin-left: 0px;
+		text-align: none;
+	}
+}
+
+#logo {
+	width: 200px;
+	height: 180px;
+	cursor: pointer;
+}
+
+#navbarNav {
+	font-size: 1.2em
+}
+
+/* 첫번째페이지 */
+.main {
+	display: flex;
+	justify-content: space-between;
+}
+
+/* 첫번째 페이지 제목 */
+.main .main_text {
+	/* 위쪽 글자 여백 */
+	margin-top: 9%;
+	justify-content: center;
+	align-items: center;
+}
+
+/*  첫번째 페이지 타이틀 부제목 */
+.main .main_text h3 {
+	font-weight: 600;
+}
+
+.main .main_img .img {
+	width: 100%;
+	height: 100%;
+}
+
+/* 첫번째 페이지 메인서브 */
+.main_sub {
+	height: 200px;
+	margin-top: 150px;
+}
+
+/* 첫번째 페이지 메인서브1 */
+.main_sub h2 {
+	padding: 10px;
+	font-weight: 600;
+}
+
+/*------------------------------
+---------페이지 전환-------------
+-------------------------------*/
+
+/* 두번째 페이지 타이틀 */
+.sub_title {
+	font-weight: 600;
+}
+
+/* 두번째페이지 중앙정렬 */
+.compare {
+	text-align: center;
+	margin-top:100px;
+}
+
+/* how different */
+.compare h1 {
+	font-weight: 600;
+}
+
+/* goldentime */
+.compare h6 {
+	color: grey;
+}
+
+/* 서울과 경기 의사들은 몇명이나 있을까요? */
+.compare h2 {
+	margin-top: 50px;
+	font-weight: 600;
+}
+
+/* 전국 단위 바 그래프 */
+.koreaDoctorBar {
+	max-height: 700px;
+	margin-top: 30px;
+}
+
+/* 두번째 페이지 마지막에 위치한 버튼 */
+.prediction_btn {
+	margin-top: 10px;
+}
+
+/* 두번째페이지 버튼 설명 */
+.prediction_btn>h6 {
+	font-weight: 600;
+	text-align: right;
+}
+
+/*------------------------------
+---------페이지 전환-------------
+-------------------------------*/
+
+/* 세번째 페이지 설명 */
+.title2 {
+	margin-top: 100px;
+	font-weight: 600;
+}
+
+/* 세번째 페이지 배너 이미지 */
+.baner {
+	position: relative;
+	display: flex;
+	justify-content: right;
+	margin-top: 100px;
+}
+
+/* 세번째 페이지 상자 4개  */
+#box4 {
+	margin-top: 5px;
+}
+
+/* chart */
+/* 바그래프 위에 4개 중 1번째 */
+.bar_title {
+	padding: 20px 10px;
+	border-radius: 5px;
+	color: rgb(0, 0, 0);
+}
+
+.title {
+	font-weight: 600;
+	margin-bottom: 30px;
+	/* margin-top: 10px; */
+}
+.title_right{
+	float:right;
+	font-weight: 600;
+	margin-bottom: 30px;
+}
+
+/* bar chart */
+.progress-bar {
+	width: 100%;
+	height: 30px;
+	background-color: #dedede;
+	font-weight: 600;
+	font-size: .8rem;
+	margin-top: 10px;
+	border-radius: 10px;
+}
+
+/* OECD doctor */
+.progress-bar .progress1 {
+	width: 37%;
+	/* 나타내고자 하는 퍼센트 값을 넣으면 됩니다.*/
+	height: 30px;
+	padding: 0;
+	text-align: center;
+	background-color: #4F98FF;
+	color: #111;
+	/* margin-top: 10px; */
+	border-radius: 10px;
+}
+
+/* korea doctor */
+.progress-bar .progress3 {
+	width: 26%;
+	/* 나타내고자 하는 퍼센트 값을 넣으면 됩니다.*/
+	height: 30px;
+	padding: 0;
+	text-align: center;
+	background-color: #4F98FF;
+	color: #111;
+	/* margin-top: 10px; */
+	border-radius: 10px;
+}
+
+/* oecd hospital */
+.progress-bar .progress2 {
+	width: 48%;
+	/* 나타내고자 하는 퍼센트 값을 넣으면 됩니다.*/
+	height: 30px;
+	padding: 0;
+	text-align: center;
+	background-color: #1c3a66;
+	color: #111;
+	/* margin-top: 10px; */
+	border-radius: 10px;
+}
+
+/* korea hospital */
+.progress-bar .progress4 {
+	width: 100%;
+	/* 나타내고자 하는 퍼센트 값을 넣으면 됩니다.*/
+	height: 30px;
+	padding: 0;
+	text-align: center;
+	background-color: #1c3a66;
+	color: #111;
+	/* margin-top: 10px; */
+	border-radius: 10px;
+}
+
+/* 바그래프 div 전체 */
+#graph {
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+#graph h5 {
+	font-weight: 600;
+}
+
+.table {
+	margin-top: 70px;
+}
+
+/*------------------------------
+---------페이지 전환-------------
+-------------------------------*/
+.prediction_page{
+	
+	margin-top: 50px;
+}
+.prediction_page.h3{
+		margin-top: 10%; 
+	margin-bottom: 5%;
+	padding: 15px 0;
+	color: black;
+	background: grey;
+	border-radious:20px;
+}
+
+.font {
+	font-weight: 600;
+	margin-bottom: 20px;
+}
+
+#pphData {
+	margin-top: 10px;
+}
+
+#result {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+#result-box {
+	border-radius: 30px;
+	align-items: center;
+	justify-content: center;
+
+}
+
+.result-box2 {
+	background-color: white;
+	border-radius: 30px;
+	padding: 10px 20px;
+}
+#button {
+	margin-top:1%;
+	background: #365CA1;
+	color: white;
+	cursor: pointer;
+	padding :15px 0;
+	border-radius: 30px;
+	
+}
+#button:hover {
+	background: #ff6384;
+}
+#panel {
+	border:1px solid black;
+	margin-bottom: 2%;
+	display: none;
+	border-radius: 10px;
+}
+
+.result-result {
+	color: black;
+	margin-top: 10px;
+	height: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: larger;
+	border-radius: 30px;
+	background-color: white;
+}
+
+
+/*글자강조*/
+p {
+  color: grey;
+  margin-bottom: 10px;
+}
+p:hover {
+  color: grey;
+}
+span {
+  position: relative;
+  font-weight: bold;
+  color: black;
+}
+span::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 5px;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  background: rgba(200, 125, 220, .6);
+}
+p:hover span::after {
+  width: 100%;
+  transition: width .3s;
+}
+/*----------------------*/
+
+/* 푸터영역 */
+footer {
+	width: 100%;
+	height: 150px;
+	border-top: 1px solid grey;
+	margin-top: 100px;
+}
+
+footer div {
+	margin-top: 25px;
+}
+
+footer ul:nth-child(1) {
+	height: 90px;
+	overflow: hidden;
+}
+
+footer ul:nth-child(2) li {
+	color: rgb(108, 117, 125);
+	width: 100px;
+}
+
+footer ul:nth-child(2) li:hover {
+	color: black;
+}

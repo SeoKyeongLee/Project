@@ -2,6 +2,9 @@ package com.mycompany.goldenTime.model;
 
 import java.sql.Timestamp;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class MemberVO {
 	private String id;
 	private String pw;

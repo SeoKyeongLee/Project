@@ -4,11 +4,13 @@ var myChart3; // 새로운 차트 변수 추가
 var popData; // 변수 추가
 
 window.onload = function () {
+	console.log("emrData.js 파일 onload function 실행");
   getData()
     .then(() => {
       createPopulationChangeChart();
     })
     .catch((error) => {
+    	console.log("window.onload 에러다");
       console.error('데이터 검색 중 오류 발생:', error);
     });
 };
@@ -16,7 +18,7 @@ window.onload = function () {
 function getData() {
   return new Promise((resolve, reject) =>
     $.ajax({
-      url: 'emrData.do',
+      url: 'emrData',
       type: 'post',
       dataType: 'json',
       success: function (data) {
@@ -28,6 +30,7 @@ function getData() {
                  congestYear: data.congestData.map(item => item.year),
                  congest: data.congestData.map(item => item.congestion),
                };
+         console.log(chartData);
 
         
         localStorage.setItem('myChartData', JSON.stringify(chartData));
@@ -38,6 +41,7 @@ function getData() {
         resolve();
       },
       error: function (xhr, status, error) {
+    	  console.log("getData 에러다");
         console.error('데이터 검색 중 오류 발생:', status, error);
         reject(error);
       }

@@ -63,7 +63,7 @@
 					<td>${dto.bId}</td>
 					<td>${dto.bName}</td>
 					<td><c:forEach begin="1" end="${dto.bIndent}">-</c:forEach> <a
-						href="content_view.do?bId=${dto.bId}">${dto.bTitle}</a></td>
+						href="content_view/${dto.bId}">${dto.bTitle}</a></td>
 					<td>${dto.bDate}</td>
 					<td>${dto.bHit}</td>
 				</tr>
@@ -107,9 +107,9 @@
 		function redirect() {
 			var loggedInUser = "${sessionScope.ValidMem}";
 			if (loggedInUser == "yes") {
-				window.location = "write_view.do";
+				window.location = "write_view";
 			} else {
-				window.location = "login.jsp";
+				window.location = "login";
 			}
 		}
 	</script>

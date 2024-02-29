@@ -44,7 +44,7 @@
         <%	} else { %>
           <a class="nav-link bi bi-person-circle" href="<c:url value='login'/>" style="float: left; margin-right: 10px; font-size: 0.9em;">로그인</a>
         <%	} %>
-        	<a class="nav-link" href="list.do" style="float: left; margin-right: 10px; font-size: 0.9em;">게시판</a>
+        	<a class="nav-link" href="list" style="float: left; margin-right: 10px; font-size: 0.9em;">게시판</a>
         </li>
       </ul>
     </div>

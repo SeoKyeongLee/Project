@@ -12,7 +12,7 @@
   <footer class="container-fulid" style="margin: 20px; padding: 20px;">
     <div class="row">
         <ul class="col-lg-3 text-center">
-            <a href="<%=request.getContextPath() %>/index.jsp"><img id="logo" src="img/goldenTimeLogo_2.png" alt="GoldenTime"></a>
+            <a href="<c:url value='/'/>"><img id="logo" src="img/goldenTimeLogo_2.png" alt="GoldenTime"></a>
         </ul>
         <ul class="col-lg-5"></ul>
         <ul class="col-lg-4">

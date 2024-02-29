@@ -38,7 +38,7 @@
 
 	<div class="container mt-4">
 		<h2 class="mb-5">게시판</h2>
-		<form id="postForm" action="write.do" method="post"
+		<form id="postForm" action="write" method="post"
 			onsubmit="return validateForm()">
 			<div class="form-group mb-3">
 				<label for="bName">작성자</label> <input type="text"
@@ -57,7 +57,7 @@
 				<button type="submit" class="btn btn-primary"
 					style="margin-right: 40px;">작성</button>
 				<button type="button" class="btn btn-primary"
-					onclick="window.location='list.do'">취소</button>
+					onclick="window.location='list'">취소</button>
 			</div>
 		</form>
 

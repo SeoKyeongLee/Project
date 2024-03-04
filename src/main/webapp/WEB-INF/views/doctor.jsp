@@ -9,7 +9,7 @@
 <!-- 문서의 Content-Type 및 문자 인코딩 설정 -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>인적자원 재배치</title>
+<title>응급실 정보</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -41,36 +41,18 @@
 		<div class="main">
 			<div class="main_text">
 				<h4 class="display-3">
-					Resource reallocation <br> Emergency crowding
+					Emergency Information
 				</h4>
 				<h5>
-					<br>의료형평성을 위한 인적자원 재배치와 응급실 혼잡도 데이터 시각화 서비스
+					<br>응급실 관련 자료 시각화 서비스
 				</h5>
 			</div>
 			<div class="main_img">
 				<img src="img/titleImg.png" alt="...">
 			</div>
 		</div>
-
-		<!-- 부제목 -->
-		<div class="container">
-			<div class="main_sub">
-				<h3>
-					효율적인 응급의료 극대화를 위해 응급의학과 전문의 재배치와 <br> 더 나은 의료 서비스를 위한 데이터 시각화
-					서비스 정보를 제공합니다.
-				</h3>
-				<h5>서울시와 경기도 의사수, OECD를 통해 분석한 결과와 응급실의 혼잡도를 분석하여 그 혼잡도에 영향을
-					미치는 요인을 파악해드립니다.</h5>
-			</div>
-		</div>
 	</div>
 	<!-- --------------------------------------- -->
-
-
-
-
-
-
 
 	<!-- 3 서울시 응급실 수와 병상 포화지수는 얼마나 될까?--------------------------------------- -->
 	<div class="container" style="margin-top: 100px; margin-bottom: 100px;">
@@ -276,17 +258,7 @@
 				<canvas id="myChart1_doctor"></canvas>
 			</div>
 		</div>
-		<!-- 이동버튼 -->
-		<div class="prediction_btn">
-			<h6>빠르게 이동하고 싶다면 다음을 선택해주세요</h6>
-			<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-				<button class="btn btn-primary" type="button"
-					onclick="location.href='person.jsp'">서울 & 경기 재배치 예측 결과 보러가기</button>
-			</div>
-		</div>
 	</div>
-	<!-- ------------------------------ -->
-
 	<!-- ------------------------------ -->
 
 	<!-- 푸터 -->
@@ -300,7 +272,9 @@
 	<!-- doctor js -->
 
 
+	<!-- 
 	<script src="js/doctor.js"></script>
+	-->
 	<script src="js/emrData.js"></script>
 </body>
 

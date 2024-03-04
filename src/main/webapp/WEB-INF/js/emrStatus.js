@@ -38,10 +38,11 @@ window.onload = function() {
 function getHospitalData() {
     // jQuery를 사용하여 Ajax POST 요청을 보냄
     $.ajax({
-        url: 'realTimeEmr.do', // 요청할 서블릿의 URL
+        url: 'realTimeEmr', // 요청할 서블릿의 URL
         type: 'post', // 요청 방식을 POST로 지정
         dataType: 'json', // 응답 데이터 타입은 JSON으로 지정
         success: function (responseData) {
+        	console.log("getHospitalData ajax 성공");
             // 비동기 콜백 함수 내에서 데이터를 처리
             for (var key in responseData) {
                 if (responseData.hasOwnProperty(key)) {
@@ -49,6 +50,7 @@ function getHospitalData() {
                 }
             }
             console.log('Received Data (hospitalData):', hospitalData);
+            
             // 데이터를 받아온 후에 inputData 함수 호출
 
         },
@@ -112,7 +114,6 @@ function currentLocationBorder(){
   }
   
 // inputData 함수 정의
-// inputData 함수 정의
 function inputData(data, startIndex, lastIndex) {
     // 데이터가 없을 경우 빠르게 함수를 종료
     if (!data || data.length === 0 || !data[0]) {
@@ -134,19 +135,22 @@ function inputData(data, startIndex, lastIndex) {
 
         // 병원 이름을 나타낼 p 요소 생성
         var nameCell = document.createElement("p");
-        nameCell.textContent = data[0][i].dutyName;
+        nameCell.textContent = data[i].dutyName;
+        console.log("inputdata() 함수 실행, dutyName : " + data[i].dutyName);
         nameCell.style = "border-bottom: 1px solid black; height: 60px; margin: 0; font-weight: bold; font-size: 1.2em; padding: auto; display: flex; align-items: center; justify-content: center;";
         nameCell.className = "text-primary emrName";
 
         // 전화번호를 나타낼 p 요소 생성
         var telnumCell = document.createElement("p");
-        telnumCell.innerHTML = '<span class="bi bi-telephone-fill">' + " " + data[0][i].dutyTel3 + "</span>";
+        telnumCell.innerHTML = '<span class="bi bi-telephone-fill">' + " " + data[i].dutyTel3 + "</span>";
+        console.log("dutyTel3 : " + data[i].dutyTel3);
         telnumCell.style = "height: 25px; line-height: 25px; margin: 0;";
         telnumCell.className = "text-secondary";
 
         // 주소 및 자세히 버튼을 나타낼 p 요소 생성
         var addressCell = document.createElement("p");
-        addressCell.innerHTML = '<span class="bi bi-map-fill">' + " " + data[0][i].dutyAddr + "</span>" + "<br>" + '<button id="show" class="btn btn-primary">자세히</button>';
+        addressCell.innerHTML = '<span class="bi bi-map-fill">' + " " + data[i].dutyAddr + "</span>" + "<br>" + '<button id="show" class="btn btn-primary">자세히</button>';
+        console.log("dutyAddr : " + data[i].dutyAddr);
         addressCell.style = "border-top: 1px solid black;";
         addressCell.className = "text-secondary emrAddress";
 
@@ -201,11 +205,12 @@ function getData() {
     data = [];
     // jQuery를 사용하여 Ajax POST 요청을 보냄
     $.ajax({
-        url: 'emrInfo.do', // 요청할 서블릿의 URL
+        url: 'emrInfo', // 요청할 서블릿의 URL
         type: 'post', // 요청 방식을 POST로 지정
         dataType: 'json', // 응답 데이터 타입은 JSON으로 지정
         data: { area: gu }, // POST 요청 시 데이터 전송
         success: function (responseData) {
+        	console.log("emrInfo 성공");
             // 비동기 콜백 함수 내에서 데이터를 처리
             for (var key in responseData) {
                 if (responseData.hasOwnProperty(key)) {
@@ -214,7 +219,7 @@ function getData() {
             }
             console.log('Received Data (data):', data);
             // 데이터를 받아온 후에 inputData 함수 호출
-            inputData(data,0,4);
+            inputData(data,0,data.length);
         },
         error: function (xhr, status, error) {
             console.error('Error:', status, error);
@@ -1312,7 +1317,7 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
                 // jQuery를 사용하여 서블릿으로 AJAX 요청
                 $.ajax({
                     type: 'POST',
-                    url: 'distanceToER.do',
+                    url: 'distanceToER',
                     contentType: 'application/json',
                     data: JSON.stringify(distancesToER),
                     success: function(response, status, xhr) {
@@ -1408,8 +1413,8 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 
         function createMarkerClickListener(marker, index) {
             kakao.maps.event.addListener(marker, 'click', function() {
-                for (var i = 0; i < hospitalData[0].length; i++) {
-                    if (marker.getTitle() === hospitalData[0][i].name) {
+                for (var i = 0; i < hospitalData.length; i++) {
+                    if (marker.getTitle() === hospitalData[i].name) {
                         changeBoard(i);
                         drawChart(i);
                         break;
@@ -1446,30 +1451,31 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
         var emReceive1 = document.querySelector("#em-receive1");
         var emReceive2 = document.querySelector("#em-receive2");
         var emReceive3 = document.querySelector("#em-receive3");
+        console.log("changeBoard 함수 호출 " + hospitalData);
 
         
      // 응급 메시지가 없을 경우: 전달 내용 X, 응급 메세지가 있을 경우: 내용 그대로 출력
-    if (hospitalData[0][index].emReceive3 === null) {
+    if (hospitalData[index].emReceive3 === null) {
         emReceive3.textContent = "전달 내용 X";
-    } else if(hospitalData[0][index].emReceive3 == null){
+    } else if(hospitalData[index].emReceive3 == null){
         emReceive3.textContent = "전달 내용 X";
-    }else if(hospitalData[0][index].emReceive3 === ""){
+    }else if(hospitalData[index].emReceive3 === ""){
        emReceive3.textContent = "전달 내용 X";
-    }else if(hospitalData[0][index].emReceive3 == ""){
+    }else if(hospitalData[index].emReceive3 == ""){
        emReceive3.textContent = "전달 내용 X";
     }else {
-        emReceive3.textContent = hospitalData[0][index].emReceive3;
+        emReceive3.textContent = hospitalData[index].emReceive3;
     }
 
     // 응급실 혼잡율에 따른 confusedLevel 색 변경 및 confusedStep style 설정
-    if (hospitalData[0][index].hvec / hospitalData[0][index].hperyn == 1) {
+    if (hospitalData[index].hvec / hospitalData[index].hperyn == 1) {
         confusedLevel.style.color = "red";
         confusedStep.textContent = "심각";
     }
-      else if (hospitalData[0][index].hvec / hospitalData[0][index].hperyn > 0.8 && hospitalData[0][index].hvec / hospitalData[0][index].hperyn < 1) {
+      else if (hospitalData[index].hvec / hospitalData[index].hperyn > 0.8 && hospitalData[index].hvec / hospitalData[index].hperyn < 1) {
         confusedLevel.style.color = "green";
         confusedStep.textContent = "여유";
-    } else if (hospitalData[0][index].hvec / hospitalData[0][index].hperyn > 0.5 && hospitalData[0][index].hvec / hospitalData[0][index].hperyn < 0.79) {
+    } else if (hospitalData[index].hvec / hospitalData[index].hperyn > 0.5 && hospitalData[index].hvec / hospitalData[index].hperyn < 0.79) {
         confusedLevel.style.color = "orange";
         confusedStep.textContent = "보통";
     } else {
@@ -1478,8 +1484,8 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
     }
 
     // 병원 이름, 입원실과 수술실의 가용 병상 수 표시
-    hospitalName.textContent = hospitalData[0][index].name;
-    hvoc.textContent = hospitalData[0][index].hvoc;
+    hospitalName.textContent = hospitalData[index].name;
+    hvoc.textContent = hospitalData[index].hvoc;
     hvoc.style.fontWeight = 'bold';
 
     // confusedStep style 설정
@@ -1490,17 +1496,17 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
     var myChart;
 
     function drawChart(index) {
-        var emergencyRoom = hospitalData[0][index].hperyn - hospitalData[0][index].hvec;
+        var emergencyRoom = hospitalData[index].hperyn - hospitalData[index].hvec;
 
         if(emergencyRoom ==0) {
-            emergencyRoom = hospitalData[0][index].hvec;
+            emergencyRoom = hospitalData[index].hvec;
         }
 
         var data = {
             labels: ['대기 환자', '기존 병상수'],
             datasets: [{
                 label: '(응급실)대기 환자/기존 병상수',
-                data: [emergencyRoom, hospitalData[0][index].hperyn],
+                data: [emergencyRoom, hospitalData[index].hperyn],
                 backgroundColor: ['red', 'green'],
             }]
         };
@@ -1524,8 +1530,8 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 //
 //        function createMarkerClickListener(marker, index) {
 //            kakao.maps.event.addListener(marker, 'click', function() {
-//                for (var i = 0; i < hospitalData[0].length; i++) {
-//                    if (marker.getTitle() === hospitalData[0][i].name) {
+//                for (var i = 0; i < hospitalData.length; i++) {
+//                    if (marker.getTitle() === hospitalData[i].name) {
 //                        changeBoard(i);
 //                        drawChart(i);
 //                        break;
@@ -1566,28 +1572,28 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 //
 //        
 //     // 응급 메시지가 없을 경우: 전달 내용 X, 응급 메세지가 있을 경우: 내용 그대로 출력
-//    if (hospitalData[0][index].emReceive3 === null) {
+//    if (hospitalData[index].emReceive3 === null) {
 //        emReceive3.textContent = "전달 내용 X";
-//    } else if(hospitalData[0][index].emReceive3 == null){
+//    } else if(hospitalData[index].emReceive3 == null){
 //        emReceive3.textContent = "전달 내용 X";
-//    }else if(hospitalData[0][index].emReceive3 === ""){
+//    }else if(hospitalData[index].emReceive3 === ""){
 //    	emReceive3.textContent = "전달 내용 X";
-//    }else if(hospitalData[0][index].emReceive3 == ""){
+//    }else if(hospitalData[index].emReceive3 == ""){
 //    	emReceive3.textContent = "전달 내용 X";
 //    }else {
-//        emReceive3.textContent = hospitalData[0][index].emReceive3;
+//        emReceive3.textContent = hospitalData[index].emReceive3;
 //    }
 //    
 //
 //    // 응급실 혼잡율에 따른 confusedLevel 색 변경 및 confusedStep style 설정
-//    if (hospitalData[0][index].hvec / hospitalData[0][index].hperyn == 1) {
+//    if (hospitalData[index].hvec / hospitalData[index].hperyn == 1) {
 //        confusedLevel.style.color = "red";
 //        confusedStep.textContent = "심각";
 //    }
-//      else if (hospitalData[0][index].hvec / hospitalData[0][index].hperyn > 0.8 && hospitalData[0][index].hvec / hospitalData[0][index].hperyn < 1) {
+//      else if (hospitalData[index].hvec / hospitalData[index].hperyn > 0.8 && hospitalData[index].hvec / hospitalData[index].hperyn < 1) {
 //        confusedLevel.style.color = "green";
 //        confusedStep.textContent = "여유";
-//    } else if (hospitalData[0][index].hvec / hospitalData[0][index].hperyn > 0.5 && hospitalData[0][index].hvec / hospitalData[0][index].hperyn < 0.79) {
+//    } else if (hospitalData[index].hvec / hospitalData[index].hperyn > 0.5 && hospitalData[index].hvec / hospitalData[index].hperyn < 0.79) {
 //        confusedLevel.style.color = "orange";
 //        confusedStep.textContent = "보통";
 //    } else {
@@ -1597,10 +1603,10 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 //    
 //
 //    // 병원 이름, 입원실과 수술실의 가용 병상 수 표시
-//    hospitalName.textContent = hospitalData[0][index].name;
-//    hvgc.textContent = hospitalData[0][index].hvgc;
+//    hospitalName.textContent = hospitalData[index].name;
+//    hvgc.textContent = hospitalData[index].hvgc;
 //    hvgc.style.fontWeight = 'bold';
-//    hvoc.textContent = hospitalData[0][index].hvoc;
+//    hvoc.textContent = hospitalData[index].hvoc;
 //    hvoc.style.fontWeight = 'bold';
 //
 //    // confusedStep style 설정
@@ -1611,17 +1617,17 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 //    var myChart;
 //
 //    function drawChart(index) {
-//        var emergencyRoom = hospitalData[0][index].hperyn - hospitalData[0][index].hvec;
+//        var emergencyRoom = hospitalData[index].hperyn - hospitalData[index].hvec;
 //
 //        if(emergencyRoom ==0) {
-//            emergencyRoom = hospitalData[0][index].hvec;
+//            emergencyRoom = hospitalData[index].hvec;
 //        }
 //
 //        var data = {
 //            labels: ['대기 환자', '기존 병상수'],
 //            datasets: [{
 //                label: '(응급실)대기 환자/기존 병상수',
-//                data: [emergencyRoom, hospitalData[0][index].hperyn],
+//                data: [emergencyRoom, hospitalData[index].hperyn],
 //                backgroundColor: ['red', 'green'],
 //            }]
 //        };

@@ -22,6 +22,7 @@ function getData() {
       type: 'post',
       dataType: 'json',
       success: function (data) {
+    	  console.log("getData() 메소드 ajax 성공");
          // 차트에 필요한 데이터 저장
          chartData = {
                  actualDataYear: data.actualData.map(item => item.year),

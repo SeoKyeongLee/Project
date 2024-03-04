@@ -12,6 +12,8 @@ import org.springframework.stereotype.Component;
 import com.mycompany.goldenTime.model.EActualVO;
 import com.mycompany.goldenTime.model.ECongestionVO;
 import com.mycompany.goldenTime.model.ENeedVO;
+import com.mycompany.goldenTime.model.ERealTimeVO;
+import com.mycompany.goldenTime.model.EmrInfoVO;
 
 @Component
 public class ERepository {
@@ -56,6 +58,39 @@ public class ERepository {
 				return emCongestion;
 			}
 		});
+	}
+	
+	public List<ERealTimeVO> realTimeList() {
+    	String query = "select * from realtime_emr ";
+    	return jdbc.query(query, new RowMapper<ERealTimeVO>() {
+			@Override
+			public ERealTimeVO mapRow(ResultSet rs, int count) throws SQLException {
+				ERealTimeVO realTimeList = new ERealTimeVO();
+				realTimeList.setName(rs.getString("name"));
+				realTimeList.setHvgc(rs.getInt("hvgc"));
+				realTimeList.setHvoc(rs.getInt("hvoc"));
+				realTimeList.setHperyn(rs.getInt("hperyn"));
+				realTimeList.setHvec(rs.getInt("hvec"));
+				realTimeList.setEmReceive3(rs.getString("emReceive3"));
+				return realTimeList;
+			}
+		});
+	}
+	
+	public List<EmrInfoVO> emrInfo(String area) {
+		System.out.println("repository emrInfo() »£√‚");
+		System.out.println("area : " + area);
+        String query = "select dutyName, dutyAddr, dutyTel3 from emr_list where emrArea = ?";
+    	return jdbc.query(query, new RowMapper<EmrInfoVO>() {
+			@Override
+			public EmrInfoVO mapRow(ResultSet rs, int count) throws SQLException {
+				EmrInfoVO emrInfo= new EmrInfoVO();
+				emrInfo.setDutyName(rs.getString("dutyName"));
+				emrInfo.setDutyAddr(rs.getString("dutyAddr"));
+				emrInfo.setDutyTel3(rs.getString("dutyTel3"));
+				return emrInfo;
+			}
+		}, area);
 	}
 	
 

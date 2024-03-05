@@ -272,9 +272,7 @@
 	<!-- doctor js -->
 
 
-	<!-- 
 	<script src="js/doctor.js"></script>
-	-->
 	<script src="js/emrData.js"></script>
 </body>
 

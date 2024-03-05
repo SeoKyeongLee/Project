@@ -27,8 +27,6 @@ public class EStatusController {
 	@Autowired
 	EmrRecommandCommand emrRecommandCommand;
 	
-	
-	
 	@RequestMapping("/emrStatus")
 	public String lemrStatus() {
 		return "emrStatus";
@@ -42,7 +40,7 @@ public class EStatusController {
 	@RequestMapping("/emrInfo")
 	public @ResponseBody List<EmrInfoVO> emrInfo(@RequestParam("area") String area) {
 		List<EmrInfoVO> result = emrInfoCommand.emrInfo(area);
-		System.out.println(area + " response วัดู");
+		System.out.println(area + " response");
 		return result;
 	}
 	
@@ -51,6 +49,4 @@ public class EStatusController {
 		return emrRecommandCommand.emrRecommand(distancesToER);
 	}
 	
-
-
 }

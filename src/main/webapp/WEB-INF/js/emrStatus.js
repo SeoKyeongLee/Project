@@ -8,6 +8,7 @@ document.addEventListener('scroll', () => {
     document.querySelector("nav").style.background="white";
   }
 });
+
 // effect 클래스에 화면 스크롤에 따른 fadeInUp 클래스 적용
 $(document).ready(function() {
   $(window).scroll(function() {

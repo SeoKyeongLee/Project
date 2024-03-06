@@ -16,10 +16,18 @@
 	<property name="password" value="${jdbc.password}" />
 </bean>
 
+<!-- MyBatis -->
+<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<property name="dataSource" ref="dataSource" />
+	<property name="mapperLocations" value="classpath:com/mycompany/goldenTime/**/*.xml" />
+</bean>
+
 <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 	<property name="dataSource" ref="dataSource" />
 </bean>
 
 <context:component-scan base-package="com.mycompany.goldenTime" />
+
+<mybatis-spring:scan base-package="com.mycompany.goldenTime.dao"/>
 
 </beans>

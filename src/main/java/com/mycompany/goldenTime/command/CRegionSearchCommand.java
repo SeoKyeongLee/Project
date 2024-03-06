@@ -1,6 +1,10 @@
 package com.mycompany.goldenTime.command;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.goldenTime.dao.CRepository;
@@ -11,12 +15,16 @@ import com.mycompany.goldenTime.model.CRegressionVO;
 public class CRegionSearchCommand {
 	
 	@Autowired
+	@Qualifier("CRepository")
 	CRepository repository;
 	
 	public float execute(int year, int month, String region) {
 		System.out.println("RegionSearchCommand 실행");
 		System.out.println("현재 년/월/지역 : " + year + "/" + month + "/" + region);
-		CDataVO data = repository.getRegionData(month, region);
+		Map<String, Object> parameter = new HashMap<String, Object>();
+		parameter.put("month", month);
+		parameter.put("region", region);
+		CDataVO data = repository.getRegionData(parameter);
 		CRegressionVO regression = repository.getRegionRegression(region);
 		
 		float RConstant = regression.getConstant();

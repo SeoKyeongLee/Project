@@ -2,7 +2,7 @@
 
 <%@ page import="java.util.*" %>
 <%@ page import="javax.servlet.http.*" %>
-<%@ page import="com.mycompany.goldenTime.dao.MRepository" %>
+<%@ page import="com.mycompany.goldenTime.dao.MRepositoryImpl" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 

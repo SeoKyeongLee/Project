@@ -45,7 +45,7 @@ public class EStatusController {
 	}
 	
 	@RequestMapping("/distanceToER")
-	public @ResponseBody List<Map<String, Object>> emrRecommand(@RequestBody List<EDistanceToERVO> distancesToER) {
+	public @ResponseBody List<Object> emrRecommand(@RequestBody List<EDistanceToERVO> distancesToER) {
 		return emrRecommandCommand.emrRecommand(distancesToER);
 	}
 	

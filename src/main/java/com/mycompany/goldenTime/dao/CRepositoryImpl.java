@@ -2,6 +2,7 @@ package com.mycompany.goldenTime.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -56,7 +57,9 @@ public class CRepositoryImpl implements CRepository{
 		
 	}
 	
-	public CDataVO getRegionData(int month, String region) {
+	public CDataVO getRegionData(Map<String, Object> parameter) {
+		String region = (String) parameter.get("region");
+		Object month= parameter.get("month");
 		String query = "select * from " + region + " where year=2021 and month=?";
 		return jdbc.queryForObject(query, new RowMapper<CDataVO>() {
 			@Override

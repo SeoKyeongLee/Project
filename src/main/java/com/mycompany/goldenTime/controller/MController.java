@@ -13,7 +13,7 @@ import com.mycompany.goldenTime.command.MJoinOkCommand;
 import com.mycompany.goldenTime.command.MLoginOkCommand;
 import com.mycompany.goldenTime.command.MLogoutCommand;
 import com.mycompany.goldenTime.command.MModifyOkCommand;
-import com.mycompany.goldenTime.dao.MRepository;
+import com.mycompany.goldenTime.dao.MRepositoryImpl;
 import com.mycompany.goldenTime.model.MemberVO;
 
 
@@ -27,7 +27,7 @@ public class MController {
 	@Autowired
 	MJoinOkCommand joinOkCommand;
 	@Autowired
-	MRepository repository;
+	MRepositoryImpl repository;
 	@Autowired
 	MLogoutCommand logout;
 	@Autowired

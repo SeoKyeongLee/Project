@@ -15,7 +15,7 @@ import com.mycompany.goldenTime.command.BListCommand;
 import com.mycompany.goldenTime.command.BReplyCommand;
 import com.mycompany.goldenTime.command.BReplyViewCommand;
 import com.mycompany.goldenTime.command.BWriteCommand;
-import com.mycompany.goldenTime.dao.BRepository;
+import com.mycompany.goldenTime.dao.BRepositoryImpl;
 import com.mycompany.goldenTime.model.BoardVO;
 
 @Controller
@@ -28,7 +28,7 @@ public class BController {
 	@Autowired
 	BContentCommand contentCommand;
 	@Autowired
-	BRepository repository;
+	BRepositoryImpl repository;
 	@Autowired
 	BReplyViewCommand replyViewCommand;
 	@Autowired

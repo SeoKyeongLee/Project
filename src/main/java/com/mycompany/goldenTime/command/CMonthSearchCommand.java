@@ -1,6 +1,7 @@
 package com.mycompany.goldenTime.command;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.goldenTime.dao.CRepository;
@@ -11,6 +12,7 @@ import com.mycompany.goldenTime.model.CRegressionVO;
 public class CMonthSearchCommand {   
 	
 	@Autowired
+	@Qualifier("CRepository")
 	CRepository repository;
 	
 	public float execute(int year, int month) {

@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.mycompany.goldenTime.dao.ERepository;
+import com.mycompany.goldenTime.dao.ERepositoryImpl;
 import com.mycompany.goldenTime.model.EDistanceToERVO;
 import com.mycompany.goldenTime.model.ERealTimeVO;
 
@@ -19,9 +19,9 @@ import com.mycompany.goldenTime.model.ERealTimeVO;
 public class EmrRecommandCommand {
 	
 	@Autowired
-	ERepository repository;
+	ERepositoryImpl repository;
 	
-	public List<Map<String, Object>> emrRecommand(List<EDistanceToERVO> distancesToER) {
+	public List<Object> emrRecommand(List<EDistanceToERVO> distancesToER) {
 		List<ERealTimeVO> list = repository.realTimeList();
         List<Map<String, Object>> results = new ArrayList<Map<String, Object>>();
 	    Map<String, Object> entry = new HashMap<String, Object>();
@@ -55,7 +55,7 @@ public class EmrRecommandCommand {
 		});
 		
         // 결과 리스트에서 최소 3개를 선택
-        List<Map<String, Object>> limitedList = results.stream()
+        List<Object> limitedList = results.stream()
                 .limit(3)
                 .collect(Collectors.toList());
         

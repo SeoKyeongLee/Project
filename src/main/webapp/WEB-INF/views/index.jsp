@@ -63,23 +63,13 @@
     <div class="row">
       <div class="col-lg-6 text-center" style="margin-bottom: 20px;">
         <img class="circleimg effect" src="img/img001.jpg" alt="">
-        <h1 class="effect">응급실 현황 서비스</h1>
+        <h1 class="effect">응급실 현황</h1>
         <p class="text-secondary effect">
           	주변 응급실을 찾을 수 있게 도와드리며, <br>응급실에 실시간 정보까지 제공해 드립니다.
         </p>
         <a class="btn btn-lg btn-danger effect" style="color: white;" href="emrStatus">더보기</a>
       </div>
-      <div class="col-lg-6 text-center" style="margin-bottom: 20px;">
-        <img class="circleimg effect" src="img/img002.jpg" alt="">
-        <h1 class="effect">응급실 데이터 서비스</h1>
-        <p class="text-secondary effect">
-          	응급실 수의 증가로 예상되는 효과를 확인할 수 있는 페이지를 소개합니다. <br>이 페이지는 그래프를 통해 응급실 환경의 예상 개선을 직관적으로 시각화하여 제공합니다.
-        </p>
-        <a class="btn btn-lg btn-primary effect" style="color: white;" href="doctor">더보기</a>
-      </div>
-    </div>
-    <div id="page3" class="row" style="margin-top: 50px; text-align: center;">
-      <div class="col-lg-6 text-center" id="page3">
+       <div class="col-lg-6 text-center" id="page3">
         <img class="circleimg effect" src="img/graph.jpg" alt="">
         <div class="col-lg-12 text-center">
           <h1 class="effect">응급실 혼잡도 예측</h1>
@@ -89,6 +79,8 @@
           <a class="btn btn-lg btn-success effect" style="color: white;" href="congestion">더보기</a>
         </div>
       </div>
+    </div>
+    <div id="page3" class="row" style="margin-top: 50px; text-align: center;">
       <div class="col-lg-6 text-center pageInfo" id="page4">
         <img class="circleimg effect" src="img/doctor.jpg" alt="">
         <ul class="col-lg-12 text-center">
@@ -101,6 +93,14 @@
           </div>
         </ul>
       </div>
+      <div class="col-lg-6 text-center" style="margin-bottom: 20px;">
+        <img class="circleimg effect" src="img/img002.jpg" alt="">
+        <h1 class="effect">응급실 정보</h1>
+        <p class="text-secondary effect">
+          	응급실 수의 증가로 예상되는 효과를 확인할 수 있는 페이지를 소개합니다. <br>이 페이지는 그래프를 통해 응급실 환경의 예상 개선을 직관적으로 시각화하여 제공합니다.
+        </p>
+        <a class="btn btn-lg btn-primary effect" style="color: white;" href="doctor">더보기</a>
+      </div>      
     </div>
   </section>
 

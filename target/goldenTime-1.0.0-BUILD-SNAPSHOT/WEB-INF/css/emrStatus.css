@@ -1,0 +1,265 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+/* 메인 내용 */
+section{
+  color: black;
+  width: 80%;
+  margin-left: 10%;
+  height: 100%; 
+
+}
+@media screen and (max-width: 1000px){
+  section{
+    height: 100%;
+  }
+  #nav2 p{
+    font-size: 0.9em;
+  }
+}
+/* 좌측 맵 */
+#seoulMap{
+  /* border: 2px solid rgb(91, 159, 180); */
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+.responsive-img{
+  width: 100%;
+}
+map{
+  cursor: pointer;
+}
+/* 우측 정보 */
+#hospital {
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content:center;
+}
+.bi-chevron-double-left,
+.bi-chevron-double-right{
+
+}
+#currentLocation{
+  border: 1px solid rgb(180, 205, 228);;
+  border-radius: 20px;
+   width: 150px;
+  text-align: center;
+}
+#currentLocation div:first-child{
+  border-bottom: 1px solid rgb(180, 205, 228);;
+}
+#nextButton,
+#previousButton {
+  font-size: 2em;
+  width: 50px;
+  height: 50px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+/* 팝업창 */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+  opacity: 0;
+}
+.show {
+  opacity: 1;
+  z-index: 1000;
+  transition: all 0.5s;
+}
+.window {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+  width: 550px;
+  height: 550px;
+  border: 2px solid rgb(13, 110, 253);
+  border-radius: 10%;
+  overflow: hidden;
+  transform: translate(-50%, -40%); /* 초기에 약간 아래에 배치 */
+}
+#closo{
+  text-align: right;
+}
+.show .popup {
+  transform: translate(-50%, -50%);
+  transition: all 0.5s;
+}
+@keyframes fadeInUp {
+  0% {
+      opacity: 0;
+      transform: translate3d(0, 100%);
+  }
+  to {
+      opacity: 1;
+      transform: translateZ(0);
+  }
+ }
+
+#kakao_seoul {
+  margin-bottom: 75px;
+  background-color: rgb(230,230,230);
+}
+
+
+
+#map {
+  width: 100%;
+  height: 600px;
+  border: 1px solid black;
+  margin-top: 10px;
+}
+
+@media screen and (max-width:998px) {
+  #map {
+      height: 620px;
+  }
+}
+
+#status-name {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 92%;
+}
+
+#measurement-standard {
+  margin-top: 10px;
+  border: 0px solid black;
+  font-size: 70%;
+  background-color: white;
+}
+
+.standard-free {
+  color: green;
+}
+
+.standard-normal {
+  color: orange;
+}
+
+.standard-confused {
+  color: red;
+}
+
+#measurement-normal {
+  color: orange;
+}
+
+#statusChartContainer {
+  width: 100%;
+  height: 200px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#statusChart {
+  border: 1px solid black;
+
+}
+
+#status-confused {
+  margin: 0 auto;
+  margin-top: 10px;
+  text-align: center;
+  border: 0px solid black;
+  background-color: white;
+  width: 100%;
+}
+
+#status-room {
+  border: px solid red;
+  margin-top: 40px;
+}
+
+
+
+@media screen and (max-width: 990px) {
+  #status-surgery {
+      margin-top: 20px;
+  }
+}
+
+#status-admiss {
+  border: 0px solid black;
+  border-radius: 10%;
+  text-align: center;
+}
+
+#status-surgery {
+  border: 0px solid black;
+  border-radius: 10%;
+  text-align: center;
+}
+
+.explain {
+  font-size: 12px;
+}
+
+#status-message {
+  margin-top: 33px;
+  height: 140px;
+  background-color: rgb(241,202,195);
+}
+
+@media screen and (max-width:1200px) {
+  #status-message {
+      height: 123px;
+      margin-bottom: 50px;
+  }
+}
+
+@media screen and (max-width:1400px) {
+
+  .message-list {
+      font-size: 80%;
+  }
+
+  .message-item {
+      font-size: 85%;
+  }
+} 
+
+.em-head {
+  text-align: center;
+}
+
+.message-list {
+  margin-top: 7px;
+}
+
+.message-item {
+  color: red;
+}
+
+#myLocation {
+  font-size: 100%;
+}
+
+@media screen and (max-width:1400px) {
+  #myLocation {
+      font-size: 60%;
+  }
+}
+

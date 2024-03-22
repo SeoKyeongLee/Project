@@ -201,7 +201,7 @@
 			<div class="row " id="graph">
 				<!-- 바그래프 -->
 				<div class="col-sm">
-					<canvas id="myChart"></canvas>
+					<canvas id="myChart_contries"></canvas>
 
 				</div>
 				<!-- 표 -->

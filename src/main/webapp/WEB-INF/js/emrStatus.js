@@ -1504,9 +1504,9 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
         }
 
         var data = {
-            labels: ['대기 환자', '기존 병상수'],
+            labels: ['응급실 환자 수', '응급실 병상수'],
             datasets: [{
-                label: '(응급실)대기 환자/기존 병상수',
+                label: ' 응급실 환자 수 / 병상수',
                 data: [emergencyRoom, hospitalData[index].hperyn],
                 backgroundColor: ['red', 'green'],
             }]

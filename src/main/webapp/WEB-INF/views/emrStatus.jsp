@@ -175,7 +175,7 @@
 				<p style ="color: grey;"> 지도 왼쪽 하단의 현위치 아이콘을 클릭하세요</p>
 				</div>
 				
-				<div class="container text-left" id="ajaxresult"  >
+				<div class="container text-left" id="ajaxresult">
 				
 				</div>
 				<div class="text-center" style="font-size:0.8em;margin-top:10%;">
@@ -209,7 +209,7 @@
 				</div>
 				<!-- 병원 이름 가운데 정렬 하려고 id 부여-->
 				<p id="status-name">
-					<b>병원 이름:<span id="hospital-name"></span></b>
+					<b><span id="hospital-name"></span></b>
 				</p>
 				<div class="row" class="status-chart">
 					<div class="col-lg-12">
@@ -240,8 +240,8 @@
 					
 						<div id="status-surgery">
 							<li><b><span class="bi bi-heart-pulse-fill text-danger"></span>수술실</b>
-								<br> <span id="used-surgery"><b></b></span></li>
-							<li class="explain" id="used-surgery"><b>(가용병상수)</b></li>
+								<br><span id="used-surgery"><b></b></span></li>
+							<li class="explain" id="used-surgery"><b>(사용가능)</b></li>
 						</div>
 				</div>
 			</div>

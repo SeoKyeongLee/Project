@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mycompany.goldenTime.dao.CRepository">
+	<select id="getNationwideData" parameterType="int" resultType="com.mycompany.goldenTime.model.CDataVO">
+		select * from nationwide where year=2021 and month= #{month}
+	</select>
+	
+	<select id="getNationwideRegression" resultType="com.mycompany.goldenTime.model.CRegressionVO">
+		select * from regression where region='nationwide'
+	</select>
+	
+	<select id="getRegionData" parameterType="map" resultType="com.mycompany.goldenTime.model.CDataVO">
+		<if test="region=='nationwide'">
+		select * from nationwide where year=2021 and month=#{month}
+		</if>
+		<if test="region=='seoul'">
+		select * from seoul where year=2021 and month=#{month}
+		</if>
+		<if test="region=='busan'">
+		select * from busan where year=2021 and month=#{month}
+		</if>
+		<if test="region=='chungbuk'">
+		select * from chungbuk where year=2021 and month=#{month}
+		</if>
+		<if test="region=='chungnam'">
+		select * from chungnam where year=2021 and month=#{month}
+		</if>
+		<if test="region=='daejeon'">
+		select * from daejeon where year=2021 and month=#{month}
+		</if>
+		<if test="region=='daegu'">
+		select * from daegu where year=2021 and month=#{month}
+		</if>
+		<if test="region=='gangwon'">
+		select * from gangwon where year=2021 and month=#{month}
+		</if>
+		<if test="region=='gwangju'">
+		select * from gwangju where year=2021 and month=#{month}
+		</if>
+		<if test="region=='jeonbuk'">
+		select * from jeonbuk where year=2021 and month=#{month}
+		</if>
+		<if test="region=='gyeonggi'">
+		select * from gyeonggi where year=2021 and month=#{month}
+		</if>
+		<if test="region=='incheon'">
+		select * from incheon where year=2021 and month=#{month}
+		</if>
+		<if test="region=='jeju'">
+		select * from jeju where year=2021 and month=#{month}
+		</if>
+		<if test="region=='ulsan'">
+		select * from ulsan where year=2021 and month=#{month}
+		</if>
+		<if test="region=='sejong'">
+		select * from sejong where year=2021 and month=#{month}
+		</if>
+		<if test="region=='gyeongnam'">
+		select * from gyeongnam where year=2021 and month=#{month}
+		</if>
+		<if test="region=='jeonnam'">
+		select * from jeonnam where year=2021 and month=#{month}
+		</if>
+		<if test="region=='gyeongbuk'">
+		select * from gyeongbuk where year=2021 and month=#{month}
+		</if>
+		
+	</select>
+	
+	<select id="getRegionRegression" parameterType="string" resultType="com.mycompany.goldenTime.model.CRegressionVO">
+		select * from regression where region=#{region}
+	</select>
+	
+</mapper>

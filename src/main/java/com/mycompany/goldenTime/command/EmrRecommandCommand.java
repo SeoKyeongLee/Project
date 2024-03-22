@@ -1,7 +1,6 @@
 package com.mycompany.goldenTime.command;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -24,7 +23,6 @@ public class EmrRecommandCommand {
 	public List<Object> emrRecommand(List<EDistanceToERVO> distancesToER) {
 		List<ERealTimeVO> list = repository.realTimeList();
         List<Map<String, Object>> results = new ArrayList<Map<String, Object>>();
-	    Map<String, Object> entry = new HashMap<String, Object>();
 		
 		for(EDistanceToERVO distanceVO : distancesToER) {
 			String hospitalName = distanceVO.getTitle();
@@ -32,6 +30,7 @@ public class EmrRecommandCommand {
 			
 			for(ERealTimeVO realTimeVO : list) {
 				if(hospitalName.equals(realTimeVO.getName())) {
+					Map<String, Object> entry = new HashMap<String, Object>();
     	            double congestion = calculateCongestion(realTimeVO);
     	            double result = ((distance * 50) - (50 * congestion));
     	            entry.put("hospital", hospitalName);
@@ -44,15 +43,22 @@ public class EmrRecommandCommand {
 			}
 		}
 		
-        // 결과 값을 result 필드를 기준으로 내림차순으로 정렬
-		Collections.sort(results, new Comparator<Map<String, Object>>() {
+		for (Map<String, Object> result : results) {
+			System.out.println(result.get("hospital"));
+		}
+		System.out.println();
+
+		results.sort(new Comparator<Map<String, Object>>() {
 		    @Override
 		    public int compare(Map<String, Object> o1, Map<String, Object> o2) {
 		        Double result1 = (Double) o1.get("result");
 		        Double result2 = (Double) o2.get("result");
-		        return Double.compare(result2, result1); // 내림차순 정렬
+
+		        return result2.compareTo(result1); // 내림차순 정렬
 		    }
 		});
+		
+
 		
         // 결과 리스트에서 최소 3개를 선택
         List<Object> limitedList = results.stream()

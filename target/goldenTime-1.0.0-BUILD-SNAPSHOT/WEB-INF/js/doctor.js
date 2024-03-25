@@ -12,9 +12,9 @@ document.addEventListener('scroll', () => {
 
 $(function() {
 	// OECD 바 차트 js
-	const ctx = document.getElementById('myChart');
+	const ctx = document.getElementById('myChart_contries');
 
-	var ctxChart =new Chart(ctx, {
+	new Chart(ctx, {
 		type : 'bar',
 		data : {
 			labels : [ '멕시코', '한국', '일본', '미국', '캐나다', '프랑스', '영국', '벨기에',
@@ -38,7 +38,6 @@ $(function() {
 		}
 	});
 });
-
 $(function() {
 
 	var ctx1 = document.getElementById('myChart1_doctor');
@@ -165,10 +164,37 @@ $(function() {
 					}
 				}
 			});
-
+	 
 });
 
+$(function() {
+	const ctx4 = document.getElementById('result1');
 
+	new Chart(ctx4, {
+		type : 'bar',
+		data : {
+			labels : [ '서울 응급의학과전문의 수', '서울 2PPH 충족 전문의 수', '경기 응급의학과 전문의 수',
+					'경기 2PPH 충족 전문의 수' ],
+			datasets : [ {
+				label : '인적자원 재배치 분석 결과',
+				data : [ 994, 519, 347, 688 ],
+				// backgroundColor: ['#36A2EB', '#FF6384', '#36A2EB',
+				// '#FF6384'],
+				borderWidth : 1,
+				borderRadius : 5
+			} ]
+		},
+		options : {
+			indexAxis : 'y', // 수평차트 만들기
+			responsive : true,
+			scales : {
+				y : {
+					beginAtZero : true
+				}
+			}
+		}
+	});
+});
 
 
 $(document).ready(function () {

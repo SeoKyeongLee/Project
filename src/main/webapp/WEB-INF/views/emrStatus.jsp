@@ -152,8 +152,7 @@
 		<div class="row">
 			<div class="col-lg-8">
 				<div id="map"></div>
-				<div id="clickLatlng"></div>
-				<div class="col-lg-3">
+				<div class="col-lg-3" style="margin-top: 10px;">
 					<button type="button" class="btn btn-default btn-small active"
 						id="myLocation">
 						<span class="bi bi-geo-alt text-primary" onclick="submitData()"></span>
@@ -171,18 +170,11 @@
 
 				<div id="emergencyList"></div>
 				<div class = "row text-left" style="margin-top: 5%;margin-bottom:10%;">
-				<h3>현재 위치 기준 자동 병원 추천</h3>
+				<h3>위치 기준 자동 병원 추천</h3>
 				<p style ="color: grey;"> 지도 왼쪽 하단의 현위치 아이콘을 클릭하세요</p>
 				</div>
 				
 				<div class="container text-left" id="ajaxresult">
-				
-				</div>
-				<div class="text-center" style="font-size:0.8em;margin-top:10%;">
-				혼잡률과 거리를 50 대 50 비율로 계산한 결과로 산출한 데이터 입니다.
-				<br><br>
-				계산식 : (현재 위치로부터 병원까지의 거리 * 50) - (혼잡률 * 50)<br>
-				(※  혼잡률은 높을수록 여유롭습니다.)
 				
 				</div>
 

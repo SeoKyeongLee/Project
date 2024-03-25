@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>인적자원 재배치</title>
+<title>Insert title here</title>
 
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
@@ -55,15 +55,10 @@
 
 				<div class="col-sm" id="result-box">
 
-					
-
 					<div class="result-result">
 
 						<p>
-							서울 응급의학과 전문의 중<span> 341명(34.3%)이</span> 경기도로 이동하게 되면,
-						</p>
-						<br>
-						<p>
+							서울 응급의학과 전문의 중<span> 341명(34.3%)이</span> 경기도로 이동하게 되면,<br>
 							<span>서울과 경기 모두 2PPH를 충족</span>하게 되어 의료형평성이 개선될 수 있음을 알 수 있다.
 						</p>
 
@@ -97,7 +92,6 @@
 		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
 		crossorigin="anonymous"></script>
 	<!-- doctor js -->
-
 	<script src="js/doctor.js"></script>
 
 </body>

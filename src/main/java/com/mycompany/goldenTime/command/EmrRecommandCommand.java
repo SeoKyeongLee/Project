@@ -32,21 +32,21 @@ public class EmrRecommandCommand {
 				if(hospitalName.equals(realTimeVO.getName())) {
 					Map<String, Object> entry = new HashMap<String, Object>();
     	            double congestion = calculateCongestion(realTimeVO);
-    	            double result = ((distance * 50) - (50 * congestion));
+    	            double result = ((distance * 50) + (50 * congestion));
     	            entry.put("hospital", hospitalName);
     	            entry.put("result", result);
     	            entry.put("cong", congestion);
     	            entry.put("distance", distance);
     	            results.add(entry);
-    	            System.out.println("Hospital: " + hospitalName + " Distance: " + distance + " Congestion: " + congestion + ", Score: " + result);
+//    	            System.out.println("Hospital: " + hospitalName + " Distance: " + distance + " Congestion: " + congestion + ", Score: " + result);
 				}
 			}
 		}
 		
-		for (Map<String, Object> result : results) {
-			System.out.println(result.get("hospital"));
-		}
-		System.out.println();
+//		for (Map<String, Object> result : results) {
+//			System.out.println(result.get("hospital"));
+//		}
+//		System.out.println();
 
 		results.sort(new Comparator<Map<String, Object>>() {
 		    @Override
@@ -54,7 +54,7 @@ public class EmrRecommandCommand {
 		        Double result1 = (Double) o1.get("result");
 		        Double result2 = (Double) o2.get("result");
 
-		        return result2.compareTo(result1); // 내림차순 정렬
+		        return result1.compareTo(result2); // 내림차순 정렬
 		    }
 		});
 		

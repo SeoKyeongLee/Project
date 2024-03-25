@@ -33,10 +33,15 @@ var data = [];
 var hospitalData = [];
 //
 window.onload = function() {
+	console.log("window.onload 호출");
 	getHospitalData();
+    findMyLocation();
+    findMyLocation2();
+
 }
 // 서블릿 연결
 function getHospitalData() {
+	console.log("getHospitalData() 호출");
     // jQuery를 사용하여 Ajax POST 요청을 보냄
     $.ajax({
         url: 'realTimeEmr', // 요청할 서블릿의 URL
@@ -62,12 +67,14 @@ function getHospitalData() {
 }
 // 페이지 이동
 function fnMove(seq) {
+	console.log("fnMove() 호출");
     var offset = $("#page" + seq).offset();
     $('html, body').animate({ scrollTop: offset.top - 110 }, 100);
 }
 
 // currentLocationBorder 함수 정의
 function currentLocationBorder(){
+	console.log("currentLocationBorder() 호출");
     // rightSection의 자식 노드 전체를 삭제
     rightSection.replaceChildren();
   
@@ -116,6 +123,7 @@ function currentLocationBorder(){
   
 // inputData 함수 정의
 function inputData(data, startIndex, lastIndex) {
+	console.log("inputData() 호출");
     // 데이터가 없을 경우 빠르게 함수를 종료
     if (!data || data.length === 0 || !data[0]) {
         return;
@@ -193,16 +201,19 @@ function inputData(data, startIndex, lastIndex) {
 }
 
 function clickFirst() {
+	console.log("clickFirst() 호출");
 	currentLocationBorder();
 	inputData(data, 0, 4);
 }
 
 function clickSecond() {
+	console.log("clickSecond() 호출");
 	currentLocationBorder();
 	inputData(data, 4, 8);
 }
 	
 function getData() {
+	console.log("getData() 호출");
     data = [];
     // jQuery를 사용하여 Ajax POST 요청을 보냄
     $.ajax({
@@ -237,6 +248,7 @@ seoulMap.src = "img/seoulMap/Dobong.PNG"
 currentLocationBorder();
 gu = "도봉";
 moveLatLon = new kakao.maps.LatLng(37.668768, 127.047163);
+displayEmergencyRooms(positions, moveLatLon.getLat(), moveLatLon.getLng());
 map.setCenter(moveLatLon);
 document.getElementById("present").innerText = gu;
 getData();
@@ -246,6 +258,7 @@ seoulMap.src = "img/seoulMap/Dongdaemun.PNG"
 currentLocationBorder();
 gu = "동대문";
 moveLatLon = new kakao.maps.LatLng(37.574524, 127.03965);
+displayEmergencyRooms(positions, moveLatLon.getLat(), moveLatLon.getLng());
 map.setCenter(moveLatLon);
 document.getElementById("present").innerText = gu;
 getData();
@@ -255,6 +268,7 @@ seoulMap.src = "img/seoulMap/Dongjak.PNG"
 currentLocationBorder();
 gu = "동작";
 moveLatLon = new kakao.maps.LatLng(37.51245, 126.9395);
+displayEmergencyRooms(positions, moveLatLon.getLat(), moveLatLon.getLng());
 map.setCenter(moveLatLon);
 document.getElementById("present").innerText = gu;
 getData();
@@ -264,6 +278,7 @@ seoulMap.src = "img/seoulMap/Eunpyeong.PNG"
 currentLocationBorder();
 gu = "은평";
 moveLatLon = new kakao.maps.LatLng(37.602784, 126.929164);
+displayEmergencyRooms(positions, moveLatLon.getLat(), moveLatLon.getLng());
 map.setCenter(moveLatLon);
 moveLatLon = new kakao.maps.LatLng(37.668768, 127.047163);
 document.getElementById("present").innerText = gu;
@@ -274,21 +289,17 @@ seoulMap.src = "img/seoulMap/Gangbuk.PNG"
 currentLocationBorder();
 gu = "강북";
 moveLatLon = new kakao.maps.LatLng(37.6397819, 127.0256135);
+displayEmergencyRooms(positions, moveLatLon.getLat(), moveLatLon.getLng());
 map.setCenter(moveLatLon);
 document.getElementById("present").innerText = gu;
 getData();
-// document.getElementById("present").innerText = gu;
-// let nullText = document.createElement("div");
-// nullText.innerHTML = "강북구에는 응급실이 없습니다.<br>주변 지역을 클릭하면<br> 다른 응급실을 제공해드립니다.";
-// nullText.className = "text-secondary text-center";
-// nullText.style="font-size: 2em; margin-top: 50px; animation: fadeInUp 1s";
-// rightSection.appendChild(nullText);
 };
 function clickGangdong(){
 seoulMap.src = "img/seoulMap/Gangdong.PNG"
 currentLocationBorder();
 gu = "강동";
 moveLatLon = new kakao.maps.LatLng(37.530126, 127.1237708);
+displayEmergencyRooms(positions, moveLatLon.getLat(), moveLatLon.getLng());
 map.setCenter(moveLatLon);
 document.getElementById("present").innerText = gu;
 getData();
@@ -298,6 +309,7 @@ seoulMap.src = "img/seoulMap/Gangnam.PNG"
 currentLocationBorder();
 gu = "강남";
 moveLatLon = new kakao.maps.LatLng(37.517305, 127.047502);
+displayEmergencyRooms(positions, moveLatLon.getLat(), moveLatLon.getLng());
 map.setCenter(moveLatLon);
 document.getElementById("present").innerText = gu;
 getData();
@@ -307,6 +319,7 @@ seoulMap.src = "img/seoulMap/Gangseo.PNG"
 currentLocationBorder();
 gu = "강서";
 moveLatLon = new kakao.maps.LatLng(37.550937, 126.849642);
+displayEmergencyRooms(positions, moveLatLon.getLat(), moveLatLon.getLng());
 map.setCenter(moveLatLon);
 document.getElementById("present").innerText = gu;
 getData();
@@ -316,6 +329,7 @@ seoulMap.src = "img/seoulMap/Geumcheon.PNG"
 currentLocationBorder();
 gu = "금천";
 moveLatLon = new kakao.maps.LatLng(37.4568644, 126.8955105);
+displayEmergencyRooms(positions, moveLatLon.getLat(), moveLatLon.getLng());
 map.setCenter(moveLatLon);
 document.getElementById("present").innerText = gu;
 getData();
@@ -325,6 +339,7 @@ seoulMap.src = "img/seoulMap/Guro.PNG"
 currentLocationBorder();
 gu = "구로";
 moveLatLon = new kakao.maps.LatLng(37.495472, 126.887536);
+displayEmergencyRooms(positions, moveLatLon.getLat(), moveLatLon.getLng());
 map.setCenter(moveLatLon);
 document.getElementById("present").innerText = gu;
 getData();
@@ -334,6 +349,7 @@ seoulMap.src = "img/seoulMap/Gwanak.PNG"
 currentLocationBorder();
 gu = "관악";
 moveLatLon = new kakao.maps.LatLng(37.4781549, 126.9514847);
+displayEmergencyRooms(positions, moveLatLon.getLat(), moveLatLon.getLng());
 map.setCenter(moveLatLon);
 document.getElementById("present").innerText = gu;
 getData();
@@ -343,6 +359,7 @@ seoulMap.src = "img/seoulMap/Gwangjin.PNG"
 currentLocationBorder();
 gu = "광진";
 moveLatLon = new kakao.maps.LatLng(37.538617, 127.082375);
+displayEmergencyRooms(positions, moveLatLon.getLat(), moveLatLon.getLng());
 map.setCenter(moveLatLon);
 document.getElementById("present").innerText = gu;
 getData();
@@ -352,6 +369,7 @@ seoulMap.src = "img/seoulMap/Jongno.PNG"
 currentLocationBorder();
 gu = "종로";
 moveLatLon = new kakao.maps.LatLng(37.5735207, 126.9788345);
+displayEmergencyRooms(positions, moveLatLon.getLat(), moveLatLon.getLng());
 map.setCenter(moveLatLon);
 document.getElementById("present").innerText = gu;
 getData();
@@ -361,6 +379,7 @@ seoulMap.src = "img/seoulMap/Jung.PNG"
 currentLocationBorder();
 gu = "중구";
 moveLatLon = new kakao.maps.LatLng(37.563843, 126.997602);
+displayEmergencyRooms(positions, moveLatLon.getLat(), moveLatLon.getLng());
 map.setCenter(moveLatLon);
 document.getElementById("present").innerText = gu;
 getData();
@@ -370,6 +389,7 @@ seoulMap.src = "img/seoulMap/Jungnang.PNG"
 currentLocationBorder();
 gu = "중랑";
 moveLatLon = new kakao.maps.LatLng(37.6063242, 127.0925842);
+displayEmergencyRooms(positions, moveLatLon.getLat(), moveLatLon.getLng());
 map.setCenter(moveLatLon);
 document.getElementById("present").innerText = gu;
 getData();
@@ -379,6 +399,7 @@ seoulMap.src = "img/seoulMap/Mapo.PNG"
 currentLocationBorder();
 gu = "마포";
 moveLatLon = new kakao.maps.LatLng(37.5663245, 126.901491);
+displayEmergencyRooms(positions, moveLatLon.getLat(), moveLatLon.getLng());
 map.setCenter(moveLatLon);
 document.getElementById("present").innerText = gu;
 getData();
@@ -388,6 +409,7 @@ seoulMap.src = "img/seoulMap/Nowon.PNG"
 currentLocationBorder();
 gu = "노원";
 moveLatLon = new kakao.maps.LatLng(37.654358, 127.056473);
+displayEmergencyRooms(positions, moveLatLon.getLat(), moveLatLon.getLng());
 map.setCenter(moveLatLon);
 document.getElementById("present").innerText = gu;
 getData();
@@ -397,6 +419,7 @@ seoulMap.src = "img/seoulMap/Seocho.PNG"
 currentLocationBorder();
 gu = "서초";
 moveLatLon = new kakao.maps.LatLng(37.483569, 127.032598);
+displayEmergencyRooms(positions, moveLatLon.getLat(), moveLatLon.getLng());
 map.setCenter(moveLatLon);
 document.getElementById("present").innerText = gu;
 getData();
@@ -406,6 +429,7 @@ seoulMap.src = "img/seoulMap/Seodaemun.PNG"
 currentLocationBorder();
 gu = "서대문";
 moveLatLon = new kakao.maps.LatLng(37.579225, 126.9368);
+displayEmergencyRooms(positions, moveLatLon.getLat(), moveLatLon.getLng());
 map.setCenter(moveLatLon);
 document.getElementById("present").innerText = gu;
 getData();
@@ -415,6 +439,7 @@ seoulMap.src = "img/seoulMap/Seongbuk.PNG"
 currentLocationBorder();
 gu = "성북";
 moveLatLon = new kakao.maps.LatLng(37.5894, 127.016749);
+displayEmergencyRooms(positions, moveLatLon.getLat(), moveLatLon.getLng());
 map.setCenter(moveLatLon);
 document.getElementById("present").innerText = gu;
 getData();
@@ -424,6 +449,7 @@ seoulMap.src = "img/seoulMap/Seongdong.PNG"
 currentLocationBorder();
 gu = "성동";
 moveLatLon = new kakao.maps.LatLng(37.563456, 127.036821);
+displayEmergencyRooms(positions, moveLatLon.getLat(), moveLatLon.getLng());
 map.setCenter(moveLatLon);
 document.getElementById("present").innerText = gu;
 getData();
@@ -433,6 +459,7 @@ seoulMap.src = "img/seoulMap/Songpa.PNG"
 currentLocationBorder();
 gu = "송파";
 moveLatLon = new kakao.maps.LatLng(37.5145636, 127.1059186);
+displayEmergencyRooms(positions, moveLatLon.getLat(), moveLatLon.getLng());
 map.setCenter(moveLatLon);
 document.getElementById("present").innerText = gu;
 getData();
@@ -442,6 +469,7 @@ seoulMap.src = "img/seoulMap/Yangcheon.PNG"
 currentLocationBorder();
 gu = "양천";
 moveLatLon = new kakao.maps.LatLng(37.517016, 126.866642);
+displayEmergencyRooms(positions, moveLatLon.getLat(), moveLatLon.getLng());
 map.setCenter(moveLatLon);
 document.getElementById("present").innerText = gu;
 getData();
@@ -451,6 +479,7 @@ seoulMap.src = "img/seoulMap/Yeongdeungpo.PNG"
 currentLocationBorder();
 gu = "영등포";
 moveLatLon = new kakao.maps.LatLng(37.526436, 126.896004);
+displayEmergencyRooms(positions, moveLatLon.getLat(), moveLatLon.getLng());
 map.setCenter(moveLatLon);
 document.getElementById("present").innerText = gu;
 getData();
@@ -460,6 +489,7 @@ seoulMap.src = "img/seoulMap/Yongsan.PNG"
 currentLocationBorder();
 gu = "용산";
 moveLatLon = new kakao.maps.LatLng(37.532527, 126.99049);
+displayEmergencyRooms(positions, moveLatLon.getLat(), moveLatLon.getLng());
 map.setCenter(moveLatLon);
 document.getElementById("present").innerText = gu;
 getData();
@@ -501,6 +531,7 @@ $(document).ready(function() {
 // 수정
 // 각 응급실 이름을 통해 검색 후 좌표 이동
 function show(content) {
+	console.log("show() 호출");
 for(let i=0; i<positions.length; i++){
  if(positions[i].title === content){
    // 이동할 위도 경도 위치를 생성합니다
@@ -509,6 +540,7 @@ for(let i=0; i<positions.length; i++){
    fnMove(1)
    // 지도 중심을 이동 시킵니다
    map.setCenter(moveLatLon);
+   displayEmergencyRooms(positions, moveLatLon.getLat(), moveLatLon.getLng());
  }
 }
 for(let i=0; i<markerArray.length; i++){
@@ -911,7 +943,9 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
  
             // 지도에 마커와 인포윈도우를 표시하는 함수입니다
             function displayMarker(locPosition, message) {
-            
+            	
+            	console.log("displayMarker() 호출");
+            	
                 // 마커를 생성합니다
                 var marker = new kakao.maps.Marker({  
                     map: map, 
@@ -936,6 +970,7 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
             
         
             function findMyLocation() {
+            	console.log("findMyLocation() 호출");
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(function (position) {
                         var lat = position.coords.latitude,
@@ -955,7 +990,7 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
                 }
             }
 
-            findMyLocation();
+//            findMyLocation();
 
             
             // ----------------------------------------------------------------
@@ -1000,14 +1035,17 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
                    var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
                    message += '경도는 ' + latlng.getLng() + ' 입니다';
                    
-                   var resultDiv = document.getElementById('clickLatlng'); 
-                   resultDiv.innerHTML = message;
+                   console.log(message);
+                   
+                   displayEmergencyRooms(positions, latlng.getLat(), latlng.getLng());
+
                    
                    
                });
                //---------------------------------------------------------------------
 
             function findMyLocation2() {
+            	console.log("findMyLocation2() 호출");
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(function (position) {
                         var lat = position.coords.latitude,
@@ -1034,6 +1072,7 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
           
 
             function generatePositions() {
+            	console.log("generatePositions() 호출");
                 var emergencyRooms = [
                     {
                         // 1
@@ -1292,6 +1331,7 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
          
            
             function displayEmergencyRooms(positions, userLat, userLon) {
+            	console.log("displayEmergencyRooms() 호출");
             	 var distancesToER = [];
                 positions.forEach(function (emergencyRoom) {
                     var distanceToER = distance(userLat, userLon, emergencyRoom.latlng.getLat(), emergencyRoom.latlng.getLng());
@@ -1345,6 +1385,13 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
                 
              // 데이터 정렬 및 표시 함수
                 function sortedData(response) {
+                    for (var i = 0; i < hospitalData.length; i++) {
+                        if (response[0].hospital === hospitalData[i].name) {
+                        	changeBoard(i);
+                            drawChart(i);
+                            break;
+                        }
+                    }
                     // 결과를 저장할 객체 생성
                     var resultsObject = {};
                     var output = '';
@@ -1380,15 +1427,16 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 
                 // 혼잡도 표시 함수
                 function calcong(cong) {
+                	console.log("findMyLocation() 호출");
                     var output = '';
 
                     if (cong > 1) {
                     	  output += '혼잡도 : <span style="color:green"> 여유 </span></p>';
-                    } else if (cong < 1 && cong > 0.8) {
+                    } else if (cong <= 1 && cong > 0.8) {
                     	output += '혼잡도 : <span style="color:green"> 보통</span> </p>';
-                    } else if (cong < 0.79 && cong > 0.5) {
+                    } else if (cong <= 0.8 && cong > 0.5) {
                         output += '혼잡도 : <span style="color:orange"> 약간 혼잡 </span></p>';
-                    } else if (cong < 0.5) {
+                    } else if (cong <= 0.5) {
                         output += '혼잡도 : <span style="color:red"> 심각</span> </p>';
                     }
 
@@ -1398,14 +1446,29 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
             }
            
             
-            findMyLocation2();
+//            findMyLocation2();
    
     // 내 위치 버튼을 클릭하면 화면에 내 위치 표시
     var myLocationButton = document.querySelector("#myLocation");
     
-    	myLocationButton.addEventListener('click', findMyLocation());
+    	myLocationButton.addEventListener('click', function() {
+    		findMyLocation();
 
-    
+    		if (navigator.geolocation) {
+    			navigator.geolocation.getCurrentPosition(function (position) {
+    				var lat = position.coords.latitude;
+    				var lon = position.coords.longitude;
+    				
+    				locPosition = new kakao.maps.LatLng(lat, lon);
+    				map.setCenter(locPosition);
+                    displayEmergencyRooms(positions, locPosition.getLat(), locPosition.getLng());
+
+    			});
+    		} else {
+                locPosition = new kakao.maps.LatLng(33.450701, 126.570667)
+                        message = 'geolocation을 사용할수 없어요..';
+    		}
+    	});
 
 // ---------------------------------------------------------------
 
@@ -1416,7 +1479,7 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
             kakao.maps.event.addListener(marker, 'click', function() {
                 for (var i = 0; i < hospitalData.length; i++) {
                     if (marker.getTitle() === hospitalData[i].name) {
-                        changeBoard(i);
+                    	changeBoard(i);
                         drawChart(i);
                         break;
                     }
@@ -1444,6 +1507,8 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
         console.log(markerArray);
         
     function changeBoard(index) {
+        console.log("클릭 병원 index: " + hospitalData);
+
         var hospitalName = document.querySelector("#hospital-name");
         var confusedLevel = document.querySelector("#confused-level");
         var confusedStep = document.querySelector("#confused-step");
@@ -1452,7 +1517,7 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
         var emReceive1 = document.querySelector("#em-receive1");
         var emReceive2 = document.querySelector("#em-receive2");
         var emReceive3 = document.querySelector("#em-receive3");
-        console.log("changeBoard 함수 호출 " + hospitalData);
+//        console.log("changeBoard 함수 호출 " + hospitalData);
 
         
      // 응급 메시지가 없을 경우: 전달 내용 X, 응급 메세지가 있을 경우: 내용 그대로 출력
@@ -1526,129 +1591,3 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
             options: {}
         });
     }
-    	   // 마커들을 담을 배열 생성
-//        var markerArray = [];
-//
-//        function createMarkerClickListener(marker, index) {
-//            kakao.maps.event.addListener(marker, 'click', function() {
-//                for (var i = 0; i < hospitalData.length; i++) {
-//                    if (marker.getTitle() === hospitalData[i].name) {
-//                        changeBoard(i);
-//                        drawChart(i);
-//                        break;
-//                    }
-//                }
-//            });
-//        }
-//
-//        var hospitalMarker;
-//        // 67개의 마커 생성 및 클릭 이벤트 리스너 등록
-//        for (var i = 0; i < 66; i++) {
-//            hospitalMarker = new kakao.maps.Marker({
-//                map: map,
-//                position: positions[i].latlng,
-//                title: positions[i].title,
-//                image: markerImage,
-//                clickable: true
-//            });
-//
-//            // 클릭 이벤트 리스너 등록
-//            createMarkerClickListener(hospitalMarker, i);
-//
-//            // 생성된 마커를 배열에 추가
-//            markerArray.push(hospitalMarker);
-//        }
-//        console.log(markerArray);
-//        
-//        
-//    function changeBoard(index) {
-//        var hospitalName = document.querySelector("#hospital-name");
-//        var confusedLevel = document.querySelector("#confused-level");
-//        var confusedStep = document.querySelector("#confused-step");
-//        var hvgc = document.querySelector("#used-admiss");
-//        var hvoc = document.querySelector("#used-surgery");
-//        var emReceive1 = document.querySelector("#em-receive1");
-//        var emReceive2 = document.querySelector("#em-receive2");
-//        var emReceive3 = document.querySelector("#em-receive3");
-//
-//        
-//     // 응급 메시지가 없을 경우: 전달 내용 X, 응급 메세지가 있을 경우: 내용 그대로 출력
-//    if (hospitalData[index].emReceive3 === null) {
-//        emReceive3.textContent = "전달 내용 X";
-//    } else if(hospitalData[index].emReceive3 == null){
-//        emReceive3.textContent = "전달 내용 X";
-//    }else if(hospitalData[index].emReceive3 === ""){
-//    	emReceive3.textContent = "전달 내용 X";
-//    }else if(hospitalData[index].emReceive3 == ""){
-//    	emReceive3.textContent = "전달 내용 X";
-//    }else {
-//        emReceive3.textContent = hospitalData[index].emReceive3;
-//    }
-//    
-//
-//    // 응급실 혼잡율에 따른 confusedLevel 색 변경 및 confusedStep style 설정
-//    if (hospitalData[index].hvec / hospitalData[index].hperyn == 1) {
-//        confusedLevel.style.color = "red";
-//        confusedStep.textContent = "심각";
-//    }
-//      else if (hospitalData[index].hvec / hospitalData[index].hperyn > 0.8 && hospitalData[index].hvec / hospitalData[index].hperyn < 1) {
-//        confusedLevel.style.color = "green";
-//        confusedStep.textContent = "여유";
-//    } else if (hospitalData[index].hvec / hospitalData[index].hperyn > 0.5 && hospitalData[index].hvec / hospitalData[index].hperyn < 0.79) {
-//        confusedLevel.style.color = "orange";
-//        confusedStep.textContent = "보통";
-//    } else {
-//        confusedLevel.style.color = "red";
-//        confusedStep.textContent = "심각";
-//    }
-//    
-//
-//    // 병원 이름, 입원실과 수술실의 가용 병상 수 표시
-//    hospitalName.textContent = hospitalData[index].name;
-//    hvgc.textContent = hospitalData[index].hvgc;
-//    hvgc.style.fontWeight = 'bold';
-//    hvoc.textContent = hospitalData[index].hvoc;
-//    hvoc.style.fontWeight = 'bold';
-//
-//    // confusedStep style 설정
-//    confusedStep.style.fontWeight = "bold";
-//    confusedStep.style.color = confusedLevel.style.color;
-//    }
-//
-//    var myChart;
-//
-//    function drawChart(index) {
-//        var emergencyRoom = hospitalData[index].hperyn - hospitalData[index].hvec;
-//
-//        if(emergencyRoom ==0) {
-//            emergencyRoom = hospitalData[index].hvec;
-//        }
-//
-//        var data = {
-//            labels: ['대기 환자', '기존 병상수'],
-//            datasets: [{
-//                label: '(응급실)대기 환자/기존 병상수',
-//                data: [emergencyRoom, hospitalData[index].hperyn],
-//                backgroundColor: ['red', 'green'],
-//            }]
-//        };
-//
-//        var ctx = document.getElementById('statusChart').getContext('2d');
-//
-//        // 이전 차트 파괴
-//        if (myChart) {	
-//            myChart.destroy();
-//        }
-//
-//        // 새로운 차트 생성
-//        myChart = new Chart(ctx, {
-//            type: 'bar',
-//            data: data,
-//            options: {}
-//        });
-//    }
-    
- 
-    
-  
-        

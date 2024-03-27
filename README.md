@@ -2,7 +2,8 @@
 <center>효율적인 의료서비스 제공과 응급실 과밀화 해결을 위한<br></center>   
 <center>응급실 혼잡도 예측 웹 사이트, GoldenTime 입니다.</center>
 
-<br>   
+<br>
+
 ## 프로젝트 개요
 * 프로젝트 이름 : GoldenTime
 * 프로젝트 기간 (총 7주)

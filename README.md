@@ -42,4 +42,4 @@
 - **데이터 분석** : R
 - **Server** : Apache Tomcat9
 - **협업 툴** : Git
-- **배포** : AWS, Docker
+- **배포** : AWS, Linux, Docker

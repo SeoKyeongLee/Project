@@ -27,6 +27,9 @@
         
     - **기능 구현**<br> 
         Java, Spring Framework, JSP를 사용한 MVC pattern의 server 개발
+              
+    - **배포**<br> 
+        AWS EC2, Linux, Docker를 이용한 배포
 <br>
       
 ## 개발환경

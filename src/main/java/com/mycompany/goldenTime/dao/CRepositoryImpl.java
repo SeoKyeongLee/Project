@@ -30,7 +30,7 @@ public class CRepositoryImpl implements CRepository{
 				data.setPatient_119(rs.getInt("patient_119"));
 				data.setPatient_ER(rs.getInt("patient_ER"));
 				data.setTA(rs.getInt("TA"));
-				
+				  
 				return data;
 			}
 		}, month); 

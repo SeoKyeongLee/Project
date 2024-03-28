@@ -10,6 +10,7 @@
    - 기능 구현 : 2024.01.15 - 2024.02.02 (약 3주)
 * 프로젝트 목적 : 지역 별 응급실 혼잡도를 예측하여 응급실 과밀화 예방을 위한 정보를 제공함
 * 인력 구성 : 3명
+* 관련 문서 : https://github.com/SeoKyeongLee/Project/tree/spring/Documentation
 <br>
 
 ## 주요 업무 및 역할
